@@ -1,0 +1,4 @@
+##### Samuel Hoyas norigin test .gitignore #####
+
+node_modules
+dist
