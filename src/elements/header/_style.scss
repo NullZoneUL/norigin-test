@@ -1,7 +1,7 @@
 @use "abstract" as *;
 
 .header-bar {
-  position: fixed;
+  position: relative;
   background-color: rgb(var(--nm-black));
   width: 100vw;
   text-align: center;

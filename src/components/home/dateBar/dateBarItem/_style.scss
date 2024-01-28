@@ -1,0 +1,44 @@
+@use "abstract" as *;
+
+.date-bar-item {
+  color: rgb(var(--nm-grey-light));
+  display: inline-block;
+  text-align: center;
+  width: 20%;
+
+  &-selected {
+    color: rgb(var(--nm-white));
+  }
+
+  & .date-bar-item-day-name {
+    font-size: $font-size-m;
+  }
+
+  & .date-bar-item-date {
+    font-size: $font-size-s;
+  }
+}
+
+@media screen and (min-width: $screen-mds) {
+  .date-bar-item {
+    & .date-bar-item-day-name {
+      font-size: $font-size-hd-xs;
+    }
+
+    & .date-bar-item-date {
+      font-size: $font-size-l;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+  .date-bar-item {
+    & .date-bar-item-day-name {
+      font-size: $font-size-hd-s;
+    }
+
+    & .date-bar-item-date {
+      font-size: $font-size-hd-xs;
+    }
+  }
+}
