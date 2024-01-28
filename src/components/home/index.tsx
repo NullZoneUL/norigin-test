@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DateBar from "./dateBar";
+import EPGContainer from "./epg";
 
 const Home = () => {
   const [date, setDate] = useState(new Date());
@@ -7,6 +8,7 @@ const Home = () => {
   return (
     <>
       <DateBar date={date} />
+      <EPGContainer />
     </>
   );
 };

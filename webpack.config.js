@@ -20,7 +20,8 @@ const config = {
   entry: ["./src/index.tsx"],
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/"
+    publicPath: "/",
+    clean: true
   },
   target: ['web', 'es5'],
   devServer: {
@@ -63,6 +64,14 @@ const config = {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|webp)$/i,
         type: "asset",
       },
+      {
+        test: /buildStrings.ts$/i,
+        loader: 'string-replace-loader',
+        options: {
+          search: '___BACKEND___',
+          replace:'http://localhost:9000/',
+        }
+      }
     ],
   },
   resolve: {
