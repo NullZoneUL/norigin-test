@@ -11,6 +11,9 @@
     "esModuleInterop": true,
     "typeRoots" : ["node_modules/@types", "ts_types/"],
     "baseUrl": "./",
+    "paths": {
+      "@assets/*": ["src/assets/*"]
+    }
   },
   "filesGlob": [
     "src/**/*.ts",

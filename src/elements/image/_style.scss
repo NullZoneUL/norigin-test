@@ -1,0 +1,110 @@
+@use "abstract" as *;
+@use "sass:math";
+
+$animationSize: 50px;
+$animationDotSize: 10%;
+
+.extended-image {
+  position: relative;
+  display: inline-block; /*In case of incompatibility with display grid*/
+  display: grid;
+}
+
+.extended-image-preload {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+
+  & > .preload-animation {
+    position: relative;
+    width: $animationSize;
+    height: $animationSize;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+
+    & > div {
+      display: inline-block;
+      width: $animationDotSize;
+      padding-bottom: $animationDotSize;
+      border-radius: 50%;
+      background-color: rgb(var(--mad-light));
+      position: absolute;
+      animation: lds-grid 1.2s linear infinite;
+
+      &:nth-child(1) {
+        left: 0;
+        animation-delay: 0s;
+      }
+
+      &:nth-child(2) {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        animation-delay: -0.3s;
+      }
+
+      &:nth-child(3) {
+        right: 0;
+        animation-delay: -0.7s;
+      }
+
+      &:nth-child(4) {
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        animation-delay: -1.4s;
+      }
+
+      &:nth-child(5) {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 50%;
+        transform: translateY(-50%);
+        animation-delay: -1s;
+      }
+
+      &:nth-child(6) {
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        animation-delay: -0.9s;
+      }
+
+      &:nth-child(7) {
+        left: 0;
+        bottom: 0;
+        animation-delay: -1.6s;
+      }
+
+      &:nth-child(8) {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        animation-delay: -0.2s;
+      }
+
+      &:nth-child(9) {
+        bottom: 0;
+        right: 0;
+        animation-delay: -1.2s;
+      }
+    }
+  }
+}
+
+@keyframes lds-grid {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

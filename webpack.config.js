@@ -69,7 +69,6 @@ const config = {
     alias: {
       root: __dirname,
       src: path.resolve(__dirname, 'src'),
-      "@state": path.resolve(__dirname, "state/"),
       "@assets": path.resolve(__dirname, 'src/assets/')
     },
     extensions: [".tsx", ".ts", ".jsx", ".js", "..."],

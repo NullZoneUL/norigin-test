@@ -1,0 +1,68 @@
+@use "abstract" as *;
+
+.header-bar {
+  position: fixed;
+  background-color: rgb(var(--nm-black));
+  width: 100vw;
+  text-align: center;
+
+  & .extended-image {
+    cursor: pointer;
+  }
+
+  & .header-bar-logo {
+    display: inline-block;
+    width: 9vw;
+    padding: to-rem($spacer-sm) 0;
+  }
+
+  & .header-login-icon,
+  .header-search-icon {
+    filter: brightness(0) invert(1);
+    width: 5.5vw;
+    position: absolute;
+    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 to-rem($spacer-sm);
+    transition: opacity 0.2s ease-out;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  & .header-login-icon {
+    left: 0;
+  }
+
+  & .header-search-icon {
+    right: 0;
+  }
+}
+
+@media screen and (min-width: $screen-mds) {
+  .header-bar {
+    & .header-bar-logo {
+      width: 7vw;
+    }
+
+    & .header-login-icon,
+    .header-search-icon {
+      width: 4.5vw;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-mdl) {
+  .header-bar {
+    & .header-bar-logo {
+      width: 5.5vw;
+    }
+
+    & .header-login-icon,
+    .header-search-icon {
+      width: 3.2vw;
+    }
+  }
+}
