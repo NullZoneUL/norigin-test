@@ -1,0 +1,40 @@
+@use "abstract" as *;
+@use "sass:math";
+
+$starSize: 40%;
+
+.date-bar {
+  background-color: rgb(var(--nm-grey-main));
+  overflow: hidden;
+  position: relative;
+
+  & .date-bar-star {
+    width: 15%;
+    float: left;
+
+    & .extended-image {
+      width: $starSize;
+      margin: math.div(100-$starSize, 2);
+    }
+  }
+
+  & .date-bar-list {
+    width: 90%;
+    right: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+  .date-bar {
+    & .date-bar-star {
+      width: 10%;
+    }
+
+    & .date-bar-list {
+      width: 96%;
+    }
+  }
+}
