@@ -3,6 +3,7 @@ import EPGTimeLineBar from "./timeLine";
 import EPGChannelList from "./channelList";
 import EPGContent from "./epgContent";
 import { epgData } from "./getEpg";
+import { parseEPG } from "src/utils/epgParser";
 import { EPGDataInterface } from "./epgInterface";
 import "./_style.scss";
 
@@ -12,7 +13,7 @@ const EPGContainer = () => {
   useEffect(() => {
     const getEpg = async () => {
       const epg = await epgData.getEpg();
-      setEpg(epg);
+      setEpg(parseEPG(epg));
     };
 
     getEpg();

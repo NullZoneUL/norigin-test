@@ -2,15 +2,18 @@
 
 .epg-content-container {
   width: max-content;
+  border-left: 1px solid transparent;
 
   & .epg-content-channel-line {
     margin-left: to-rem(85);
     border-bottom: 0.5px solid rgb(var(--nm-grey-light));
 
     & .epg-schedule-item {
-      display: inline-block;
+      float: left;
       height: 100%;
       color: rgb(var(--nm-white));
+      background-color: rgb(var(--nm-black));
+      border-right: 0.5px solid rgb(var(--nm-grey-light));
     }
   }
 }

@@ -10,6 +10,8 @@ export interface EPGDataInterface {
       id: string;
       start: string;
       end: string;
+      minutes?: number;
+      parsedSchedule?: string;
     }[];
   }[];
 }

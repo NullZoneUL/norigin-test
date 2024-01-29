@@ -1,5 +1,5 @@
 import React from "react";
-import { timeParser } from "src/utils/timeParser";
+import { getEpgItemWidth } from "./getWidth";
 import { EPGDataInterface } from "../epgInterface";
 import "./_style.scss";
 
@@ -19,13 +19,14 @@ const EPGContent = ({ epgData }: { epgData: EPGDataInterface }) => {
             channel.schedules.map((scheduleItem, index) => (
               <div
                 className="epg-schedule-item"
+                style={{ width: getEpgItemWidth(scheduleItem.minutes) }}
                 key={`EPG_CONTENT_SCHEDULE_ITEM_${scheduleItem.id}_${index}`}
               >
                 <div className="epg-schedule-item-title">
                   {scheduleItem.title}
                 </div>
                 <div className="epg-schedule-item-date">
-                  {timeParser(scheduleItem.start, scheduleItem.end)}
+                  {scheduleItem.parsedSchedule}
                 </div>
               </div>
             ))}
