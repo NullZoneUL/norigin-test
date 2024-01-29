@@ -1,21 +1,26 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import "./_style.scss";
 
-const UPDATE_TIME = 120; //Time in seconds
+const UPDATE_TIME = 60; //Time in seconds
 
 const EPGTimeMarker = ({
   date,
   pxByHour,
+  onTimeUpdated,
 }: {
   date: Date;
   pxByHour: number;
+  onTimeUpdated: Function;
 }) => {
   const [barPosition, setBarPosition] = useState(0);
   const timeRef = useRef(date.getHours() * 60 + date.getMinutes());
+
   const updateTimeMarker = useCallback(() => {
-    setBarPosition((timeRef.current / 60) * pxByHour);
+    const newPosition = (timeRef.current / 60) * pxByHour;
+    setBarPosition(newPosition);
+    onTimeUpdated(newPosition);
     timeRef.current += UPDATE_TIME / 60;
-  }, [pxByHour]);
+  }, [pxByHour, onTimeUpdated]);
 
   useEffect(() => {
     const updateTimeMarkerInterval = setInterval(
@@ -27,6 +32,10 @@ const EPGTimeMarker = ({
       clearInterval(updateTimeMarkerInterval);
     };
   }, []);
+
+  useEffect(() => {
+    updateTimeMarker();
+  }, [pxByHour]);
 
   if (barPosition === 0) {
     return <></>;

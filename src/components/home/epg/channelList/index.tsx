@@ -4,11 +4,13 @@ import "./_style.scss";
 
 const EPGChannelList = ({
   channelList,
+  ref_,
 }: {
   channelList: { id: string; images: { logo: string } }[];
+  ref_: React.ForwardedRef<HTMLDivElement>;
 }) => {
   return (
-    <div className="epg-channel-list-container epg-left-bar-width">
+    <div className="epg-channel-list-container epg-left-bar-width" ref={ref_}>
       {channelList.length > 0 &&
         channelList.map((channel) => (
           <ExtendedImage

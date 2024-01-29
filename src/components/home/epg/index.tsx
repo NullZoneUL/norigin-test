@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import EPGTimeLineBar from "./timeLine";
 import EPGChannelList from "./channelList";
 import EPGContent from "./epgContent";
@@ -11,6 +11,25 @@ import "./_style.scss";
 const EPGContainer = ({ date }: { date: Date }) => {
   const [epg, setEpg] = useState<EPGDataInterface>();
   const [pxByHour, setPxByHour] = useState(0);
+  const scrollPosition = useRef(0);
+  const containerRef = useRef<HTMLDivElement>();
+  const channelsRef = useRef<HTMLDivElement>();
+  const scrolled = useRef(false);
+
+  const geScrollPosition = (newPosition: number) => {
+    scrollPosition.current =
+      newPosition + channelsRef.current.clientWidth - window.innerWidth / 2;
+
+    if (!scrolled.current) {
+      resetContainerScroll();
+      scrolled.current = true;
+    }
+  };
+
+  const resetContainerScroll = useCallback(() => {
+    if (!containerRef.current) return;
+    containerRef.current.scrollLeft = scrollPosition.current;
+  }, []);
 
   useEffect(() => {
     let minHeightTimeout: any;
@@ -40,13 +59,20 @@ const EPGContainer = ({ date }: { date: Date }) => {
   if (!epg || pxByHour == 0) {
     return <></>;
   }
-  console.log(epg);
+
   return (
-    <div className="epg-container">
+    <div className="epg-container" ref={containerRef}>
       <EPGTimeLineBar pxByHour={pxByHour} />
-      <EPGChannelList channelList={epg.channels} />
+      <EPGChannelList channelList={epg.channels} ref_={channelsRef} />
       <EPGContent epgData={epg} pxByHour={pxByHour} />
-      <EPGTimeMarker date={date} pxByHour={pxByHour} />
+      <EPGTimeMarker
+        date={date}
+        pxByHour={pxByHour}
+        onTimeUpdated={geScrollPosition}
+      />
+      <button onClick={resetContainerScroll} className="epg-reset-scroll-btn">
+        NOW
+      </button>
     </div>
   );
 };
