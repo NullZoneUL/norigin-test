@@ -1,1 +1,2 @@
-export const getEpgItemWidth = (minutes: number) => `${(minutes * 250) / 60}px`;
+export const getEpgItemWidth = (minutes: number, pxByHour: number) =>
+  `${(minutes * pxByHour) / 60}px`;

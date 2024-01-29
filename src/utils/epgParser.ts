@@ -1,8 +1,5 @@
+import { lessThanTenParser } from "./checkLessThanTen";
 import { EPGDataInterface } from "src/components/home/epg/epgInterface";
-
-const lessThanTenParser = (number: number): string => {
-  return number < 10 ? `0${number}` : number.toString();
-};
 
 export const parseEPG = (epg: EPGDataInterface) => {
   epg?.channels?.forEach((channel) => {

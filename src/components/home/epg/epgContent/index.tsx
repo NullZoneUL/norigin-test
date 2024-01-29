@@ -3,7 +3,13 @@ import { getEpgItemWidth } from "./getWidth";
 import { EPGDataInterface } from "../epgInterface";
 import "./_style.scss";
 
-const EPGContent = ({ epgData }: { epgData: EPGDataInterface }) => {
+const EPGContent = ({
+  epgData,
+  pxByHour,
+}: {
+  epgData: EPGDataInterface;
+  pxByHour: number;
+}) => {
   if (epgData.channels?.length === 0) {
     return <></>;
   }
@@ -19,7 +25,9 @@ const EPGContent = ({ epgData }: { epgData: EPGDataInterface }) => {
             channel.schedules.map((scheduleItem, index) => (
               <div
                 className="epg-schedule-item"
-                style={{ width: getEpgItemWidth(scheduleItem.minutes) }}
+                style={{
+                  width: getEpgItemWidth(scheduleItem.minutes, pxByHour),
+                }}
                 key={`EPG_CONTENT_SCHEDULE_ITEM_${scheduleItem.id}_${index}`}
               >
                 <div className="epg-schedule-item-title">

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DateBarItem from "./dateBarItem";
 import ExtendedImage from "src/elements/image";
+import { lessThanTenParser } from "src/utils/checkLessThanTen";
 import { DateBarItemInterface } from "./dateBarItem/interface";
 import { starImage } from "@assets/images/star";
 import "./_style.scss";
@@ -17,7 +18,7 @@ const DateBar = ({ date }: { date: Date }) => {
       dayDate.setTime(date.getTime() + i * oneDayOffset);
       daysArray.push({
         dayName: dayDate.toLocaleString("en-us", { weekday: "short" }),
-        date: `${dayDate.getDate()}.${dayDate.getMonth() + 1}.`,
+        date: `${lessThanTenParser(dayDate.getDate())}.${lessThanTenParser(dayDate.getMonth() + 1)}.`,
         selected: i === 0,
       });
     }

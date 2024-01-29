@@ -1,129 +1,18 @@
 import React from "react";
+import { EPGTimeLineBarItem } from "./item";
+import { lessThanTenParser } from "src/utils/checkLessThanTen";
 import "./_style.scss";
 
-const EPGTimeLineBar = () => {
+const EPGTimeLineBar = ({ pxByHour }: { pxByHour: number }) => {
   return (
     <div className="epg-time-line-container">
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">00:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">01:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">02:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">03:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">04:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">05:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">06:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">07:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">08:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">09:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">10:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">11:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">12:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">13:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">14:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">15:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">16:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">17:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">18:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">19:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">20:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">21:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">22:00</span>
-        </div>
-      </div>
-      <div className="epg-time-line-item-container">
-        <div className="epg-time-line-item-min-content">
-          <span className="epg-time-line-item">23:00</span>
-        </div>
-      </div>
+      {[...Array(24)].map((e, index) => (
+        <EPGTimeLineBarItem
+          pxByHour={pxByHour}
+          time={`${lessThanTenParser(index)}:00`}
+          key={`EPG_SCHEDULE_ITEM_${index}`}
+        />
+      ))}
     </div>
   );
 };
