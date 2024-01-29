@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EPGTimeLineBar from "./timeLine";
 import EPGChannelList from "./channelList";
+import EPGContent from "./epgContent";
 import { epgData } from "./getEpg";
 import { EPGDataInterface } from "./epgInterface";
 import "./_style.scss";
@@ -25,6 +26,7 @@ const EPGContainer = () => {
     <div className="epg-container">
       <EPGTimeLineBar />
       <EPGChannelList channelList={epg.channels} />
+      <EPGContent epgData={epg} />
     </div>
   );
 };

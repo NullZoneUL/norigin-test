@@ -1,0 +1,7 @@
+@use "abstract" as *;
+
+.epg-content-container {
+  & .epg-schedule-item {
+    display: inline-block;
+  }
+}

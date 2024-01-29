@@ -5,7 +5,7 @@ import "./_style.scss";
 const EPGChannelList = ({
   channelList,
 }: {
-  channelList: { images: { logo: string } }[];
+  channelList: { id: string; images: { logo: string } }[];
 }) => {
   return (
     <div className="epg-channel-list-container epg-left-bar-width">
@@ -14,7 +14,7 @@ const EPGChannelList = ({
           <ExtendedImage
             image={{ image: channel.images.logo }}
             className="epg-channel-list-item epg-left-bar-item-height"
-            key={`EPG_CHANNEL_ITEM_${channel.images.logo}`}
+            key={`EPG_CHANNEL_ITEM_${channel.id}`}
           />
         ))}
     </div>
