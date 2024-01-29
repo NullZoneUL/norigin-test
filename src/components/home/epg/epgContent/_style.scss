@@ -1,7 +1,22 @@
 @use "abstract" as *;
 
 .epg-content-container {
-  & .epg-schedule-item {
-    display: inline-block;
+  width: max-content;
+
+  & .epg-content-channel-line {
+    margin-left: to-rem(85);
+    border-bottom: 0.5px solid rgb(var(--nm-grey-light));
+
+    & .epg-schedule-item {
+      display: inline-block;
+      height: 100%;
+      color: rgb(var(--nm-white));
+    }
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  .epg-content-container .epg-content-channel-line {
+    margin-left: to-rem(120);
   }
 }

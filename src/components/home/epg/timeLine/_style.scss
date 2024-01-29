@@ -5,5 +5,20 @@
   border-bottom: 0.5px solid rgb(var(--nm-grey-light));
   color: rgb(var(--nm-white));
   font-size: $font-size-m;
-  height: to-rem($spacer-big);
+  width: max-content;
+  height: to-rem($spacer-huge);
+
+  & > div {
+    display: inline-block;
+
+    &:first-child {
+      margin-left: to-rem(85);
+    }
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  .epg-time-line-container div:first-child {
+    margin-left: to-rem(120);
+  }
 }

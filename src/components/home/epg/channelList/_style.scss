@@ -2,6 +2,7 @@
 
 .epg-channel-list-container {
   position: absolute;
+  background-color: rgb(var(--nm-grey-main));
 
   & > .epg-channel-list-item {
     padding: 0 20%;
