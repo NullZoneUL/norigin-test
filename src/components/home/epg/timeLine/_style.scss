@@ -1,6 +1,10 @@
 @use "abstract" as *;
 
+$itemHeight: 10;
+
 .epg-time-line-container {
+  display: flex;
+  align-items: flex-end;
   border-top: 0.5px solid rgb(var(--nm-grey-light));
   border-bottom: 0.5px solid rgb(var(--nm-grey-light));
   color: rgb(var(--nm-white));
@@ -8,17 +12,39 @@
   width: max-content;
   height: to-rem($spacer-huge);
 
-  & > div {
+  & > .epg-time-line-item-container {
     display: inline-block;
+    margin-bottom: to-rem($itemHeight);
+    width: to-rem(250);
 
     &:first-child {
       margin-left: to-rem(85);
+    }
+
+    & .epg-time-line-item-min-content {
+      width: fit-content;
+
+      & .epg-time-line-item {
+        position: relative;
+        left: -50%;
+
+        &::after {
+          content: "";
+          width: 1px;
+          height: to-rem($itemHeight);
+          background-color: rgb(var(--nm-grey-light));
+          display: inline-block;
+          position: absolute;
+          left: 50%;
+          bottom: to-rem(-$itemHeight);
+        }
+      }
     }
   }
 }
 
 @media screen and (min-width: $screen-sm) {
-  .epg-time-line-container div:first-child {
+  .epg-time-line-container .epg-time-line-item-container:first-child {
     margin-left: to-rem(120);
   }
 }
