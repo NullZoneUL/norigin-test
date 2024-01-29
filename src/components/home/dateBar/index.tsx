@@ -27,7 +27,7 @@ const DateBar = ({ date }: { date: Date }) => {
 
   return (
     <div className="date-bar">
-      <div className="date-bar-star">
+      <div className="date-bar-star epg-left-bar-width epg-left-bar-item-height">
         <ExtendedImage image={starImage} preload />
       </div>
       <div className="date-bar-list">

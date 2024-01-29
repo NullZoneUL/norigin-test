@@ -1,0 +1,35 @@
+@use "abstract" as *;
+
+.epg-channel-list-container {
+  position: fixed;
+
+  & > .epg-channel-list-item {
+    padding: 0 20%;
+    border-bottom: 0.5px solid rgb(var(--nm-grey-light));
+
+    & > img {
+      top: 50%;
+      transform: translateY(-50%);
+      position: relative;
+    }
+  }
+}
+
+.epg-left-bar-width {
+  width: to-rem(85);
+  box-shadow: 7px 0px 11px 1px rgba(0, 0, 0, 0.75);
+}
+
+.epg-left-bar-item-height {
+  height: to-rem(80);
+}
+
+@media screen and (min-width: $screen-sm) {
+  .epg-left-bar-width {
+    width: to-rem(120);
+  }
+
+  .epg-left-bar-item-height {
+    height: to-rem(90);
+  }
+}

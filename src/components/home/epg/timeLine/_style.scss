@@ -1,0 +1,8 @@
+@use "abstract" as *;
+
+.epg-time-line-container {
+  border-top: 0.5px solid rgb(var(--nm-grey-light));
+  border-bottom: 0.5px solid rgb(var(--nm-grey-light));
+  color: rgb(var(--nm-white));
+  font-size: $font-size-m;
+}
