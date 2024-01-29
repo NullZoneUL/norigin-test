@@ -9,7 +9,6 @@ $itemHeight: 10;
   color: rgb(var(--nm-white));
   font-size: $font-size-m;
   width: max-content;
-  height: to-rem($spacer-huge);
 
   & > .epg-time-line-item-container {
     display: inline-block;
@@ -39,6 +38,10 @@ $itemHeight: 10;
       }
     }
   }
+}
+
+.epg-time-line-container-height {
+  height: to-rem($spacer-huge);
 }
 
 @media screen and (min-width: $screen-sm) {

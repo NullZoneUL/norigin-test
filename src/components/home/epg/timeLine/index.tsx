@@ -5,7 +5,7 @@ import "./_style.scss";
 
 const EPGTimeLineBar = ({ pxByHour }: { pxByHour: number }) => {
   return (
-    <div className="epg-time-line-container">
+    <div className="epg-time-line-container epg-time-line-container-height">
       {[...Array(24)].map((e, index) => (
         <EPGTimeLineBarItem
           pxByHour={pxByHour}

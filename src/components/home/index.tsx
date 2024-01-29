@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <>
       <DateBar date={date} />
-      <EPGContainer />
+      <EPGContainer date={date} />
     </>
   );
 };

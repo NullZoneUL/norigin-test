@@ -18,7 +18,7 @@ const EPGContent = ({
     <div className="epg-content-container">
       {epgData.channels.map((channel) => (
         <div
-          className="epg-content-channel-line epg-left-bar-item-height"
+          className="epg-content-channel-line epg-left-bar-item-height epg-channel-separator"
           key={`EPG_CONTENT_CHANNEL_${channel.id}`}
         >
           {channel.schedules.length > 0 &&

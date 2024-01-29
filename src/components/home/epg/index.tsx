@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import EPGTimeLineBar from "./timeLine";
 import EPGChannelList from "./channelList";
 import EPGContent from "./epgContent";
+import EPGTimeMarker from "./timeMarker";
 import { epgData } from "./getEpg";
 import { parseEPG } from "src/utils/epgParser";
 import { EPGDataInterface } from "./epgInterface";
 import "./_style.scss";
 
-const EPGContainer = () => {
+const EPGContainer = ({ date }: { date: Date }) => {
   const [epg, setEpg] = useState<EPGDataInterface>();
   const [pxByHour, setPxByHour] = useState(0);
 
@@ -45,6 +46,7 @@ const EPGContainer = () => {
       <EPGTimeLineBar pxByHour={pxByHour} />
       <EPGChannelList channelList={epg.channels} />
       <EPGContent epgData={epg} pxByHour={pxByHour} />
+      <EPGTimeMarker date={date} pxByHour={pxByHour} />
     </div>
   );
 };

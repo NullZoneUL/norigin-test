@@ -1,0 +1,20 @@
+@use "abstract" as *;
+
+.epg-time-marker-time-bar,
+.epg-time-marker-content {
+  background-color: rgb(var(--nm-yellow));
+  position: absolute;
+  top: 0;
+}
+
+.epg-time-marker-time-bar {
+  width: 5px;
+  border-radius: 2px;
+  margin-left: -2.5px;
+}
+
+.epg-time-marker-content {
+  width: 2px;
+  height: 100%;
+  margin-left: -1px;
+}

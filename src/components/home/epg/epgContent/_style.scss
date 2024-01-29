@@ -5,7 +5,6 @@
   border-left: 1px solid transparent;
 
   & .epg-content-channel-line {
-    margin-left: to-rem(85);
     border-bottom: 0.5px solid rgb(var(--nm-grey-light));
 
     & .epg-schedule-item {
@@ -18,8 +17,12 @@
   }
 }
 
+.epg-channel-separator {
+  margin-left: to-rem(85);
+}
+
 @media screen and (min-width: $screen-sm) {
-  .epg-content-container .epg-content-channel-line {
+  .epg-channel-separator {
     margin-left: to-rem(120);
   }
 }
