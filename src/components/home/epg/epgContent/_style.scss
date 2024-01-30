@@ -5,14 +5,46 @@
   border-left: 1px solid transparent;
 
   & .epg-content-channel-line {
+    width: 100%;
     border-bottom: 0.5px solid rgb(var(--nm-grey-light));
 
+    &:first-child {
+      border-top: 0.5px solid rgb(var(--nm-grey-light));
+      margin-top: -1px;
+    }
+
     & .epg-schedule-item {
+      cursor: pointer;
       float: left;
       height: 100%;
       color: rgb(var(--nm-white));
       background-color: rgb(var(--nm-black));
       border-right: 0.5px solid rgb(var(--nm-grey-light));
+
+      &:hover {
+        background-color: rgb(var(--nm-grey-main));
+      }
+
+      & .epg-schedule-item-title,
+      .epg-schedule-item-date {
+        margin-left: to-rem($spacer-xxs);
+      }
+
+      & .epg-schedule-item-title {
+        font-size: $font-size-xs;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        margin-top: to-rem($spacer-xs);
+      }
+
+      & .epg-schedule-item-date {
+        font-size: $font-size-xxs;
+        color: rgb(var(--nm-grey-light));
+        margin-top: to-rem($spacer-xxs);
+      }
     }
   }
 }
@@ -24,5 +56,21 @@
 @media screen and (min-width: $screen-sm) {
   .epg-channel-separator {
     margin-left: to-rem(120);
+  }
+
+  .epg-content-container .epg-content-channel-line .epg-schedule-item {
+    & .epg-schedule-item-title,
+    .epg-schedule-item-date {
+      margin-left: to-rem($spacer-md);
+    }
+
+    & .epg-schedule-item-title {
+      font-size: $font-size-m;
+      margin-top: to-rem($spacer-md);
+    }
+
+    & .epg-schedule-item-date {
+      font-size: $font-size-s;
+    }
   }
 }
