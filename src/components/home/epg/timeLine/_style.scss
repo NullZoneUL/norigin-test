@@ -9,6 +9,8 @@ $itemHeight: 10;
   color: rgb(var(--nm-white));
   font-size: $font-size-m;
   width: max-content;
+  z-index: 1;
+  position: relative;
 
   & > .epg-time-line-item-container {
     display: inline-block;

@@ -3,6 +3,8 @@
 .epg-channel-list-container {
   position: absolute;
   background-color: rgb(var(--nm-grey-main));
+  z-index: 1;
+  margin-top: calc(to-rem($spacer-huge) - 1px);
 
   & > .epg-channel-list-item {
     padding: 0 20%;
@@ -17,12 +19,12 @@
 }
 
 .epg-left-bar-width {
-  width: to-rem(85);
+  width: to-rem(80);
   box-shadow: 7px 0px 11px 1px rgba(0, 0, 0, 0.75);
 }
 
 .epg-left-bar-item-height {
-  height: to-rem(80);
+  height: to-rem(74);
 }
 
 @media screen and (min-width: $screen-sm) {
