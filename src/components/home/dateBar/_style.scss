@@ -1,20 +1,22 @@
 @use "abstract" as *;
-@use "sass:math";
-
-$starSize: 40%;
 
 .date-bar {
   background-color: rgb(var(--nm-grey-main));
+  border-bottom: 0.5px solid rgb(var(--nm-grey-light));
   overflow: hidden;
   position: relative;
 
   & .date-bar-star {
-    width: 15%;
     float: left;
+    z-index: 1;
+    position: relative;
+    background: rgb(var(--nm-grey-main));
 
     & .extended-image {
-      width: $starSize;
-      margin: math.div(100-$starSize, 2);
+      width: 40%;
+      margin: 0 auto;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 
@@ -28,13 +30,7 @@ $starSize: 40%;
 }
 
 @media screen and (min-width: $screen-lg) {
-  .date-bar {
-    & .date-bar-star {
-      width: 10%;
-    }
-
-    & .date-bar-list {
-      width: 96%;
-    }
+  .date-bar .date-bar-list {
+    width: 96%;
   }
 }

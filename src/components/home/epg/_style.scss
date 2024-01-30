@@ -1,0 +1,21 @@
+@use "abstract" as *;
+
+.epg-container {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: relative;
+
+  & .epg-reset-scroll-btn {
+    cursor: pointer;
+    position: fixed;
+    background-color: rgb(var(--nm-yellow));
+    color: rgb(var(--nm-white));
+    font-weight: bold;
+    font-size: $font-size-m;
+    bottom: to-rem($spacer-xl);
+    right: to-rem($spacer-md);
+    padding: to-rem($spacer-xs);
+    border-color: transparent;
+    border-radius: 5px;
+  }
+}
