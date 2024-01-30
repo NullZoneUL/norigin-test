@@ -18,7 +18,7 @@ const EPGContainer = ({ date }: { date: Date }) => {
 
   const geScrollPosition = (newPosition: number) => {
     scrollPosition.current =
-      newPosition + channelsRef.current.clientWidth - window.innerWidth / 2;
+      newPosition - (window.innerWidth - channelsRef.current.clientWidth) / 2;
 
     if (!scrolled.current) {
       resetContainerScroll();
@@ -61,19 +61,21 @@ const EPGContainer = ({ date }: { date: Date }) => {
   }
 
   return (
-    <div className="epg-container" ref={containerRef}>
-      <EPGTimeLineBar pxByHour={pxByHour} />
+    <>
       <EPGChannelList channelList={epg.channels} ref_={channelsRef} />
-      <EPGContent epgData={epg} pxByHour={pxByHour} />
-      <EPGTimeMarker
-        date={date}
-        pxByHour={pxByHour}
-        onTimeUpdated={geScrollPosition}
-      />
-      <button onClick={resetContainerScroll} className="epg-reset-scroll-btn">
-        NOW
-      </button>
-    </div>
+      <div className="epg-container" ref={containerRef}>
+        <EPGTimeLineBar pxByHour={pxByHour} />
+        <EPGContent epgData={epg} pxByHour={pxByHour} />
+        <EPGTimeMarker
+          date={date}
+          pxByHour={pxByHour}
+          onTimeUpdated={geScrollPosition}
+        />
+        <button onClick={resetContainerScroll} className="epg-reset-scroll-btn">
+          NOW
+        </button>
+      </div>
+    </>
   );
 };
 

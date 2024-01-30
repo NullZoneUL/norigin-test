@@ -20,14 +20,14 @@ const EPGTimeMarker = ({
     setBarPosition(newPosition);
     onTimeUpdated(newPosition);
     timeRef.current += UPDATE_TIME / 60;
-  }, [pxByHour, onTimeUpdated]);
+  }, [pxByHour]);
 
   useEffect(() => {
     const updateTimeMarkerInterval = setInterval(
       updateTimeMarker,
       UPDATE_TIME * 1000,
     );
-    updateTimeMarker();
+
     return () => {
       clearInterval(updateTimeMarkerInterval);
     };
