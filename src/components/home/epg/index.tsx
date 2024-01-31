@@ -6,6 +6,7 @@ import EPGTimeMarker from "./timeMarker";
 import { epgData } from "./getEpg";
 import { parseEPG } from "src/utils/epgParser";
 import { EPGDataInterface } from "./epgInterface";
+import literals from "@assets/literals/eng.json";
 import "./_style.scss";
 
 const EPGContainer = ({ date }: { date: Date }) => {
@@ -72,7 +73,7 @@ const EPGContainer = ({ date }: { date: Date }) => {
           onTimeUpdated={geScrollPosition}
         />
         <button onClick={resetContainerScroll} className="epg-reset-scroll-btn">
-          NOW
+          {literals.now}
         </button>
       </div>
     </>

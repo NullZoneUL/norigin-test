@@ -1,0 +1,130 @@
+@use "abstract" as *;
+
+.info-page-request-error {
+  color: rgb(var(--nm-white));
+  text-align: center;
+  margin-top: to-rem($spacer-huge);
+  font-size: $font-size-s;
+}
+
+.info-page-container {
+  color: rgb(var(--nm-grey-light));
+
+  & > .extended-image {
+    width: 100%;
+
+    & > img {
+      width: 100%;
+    }
+  }
+
+  & .info-page-header-white {
+    color: rgb(var(--nm-white));
+  }
+
+  & .info-page-data-container {
+    box-shadow: 0px -17px 49px 22px rgb(var(--nm-black));
+    z-index: 1;
+    position: relative;
+    font-size: $font-size-xs;
+
+    & .info-page-header-data {
+      margin-top: to-rem($spacer-md);
+      margin-bottom: to-rem($spacer-lg);
+
+      & .info-page-header-section {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      & .info-page-header-channel-logo {
+        width: 20%;
+
+        & > .extended-image {
+          padding: 20%;
+        }
+      }
+
+      & .info-page-header-tv-info {
+        width: 80%;
+
+        & .info-tv-info-section {
+          margin-top: to-rem($spacer-xxs);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          & span {
+            margin-right: to-rem($spacer-xs);
+          }
+        }
+      }
+    }
+
+    & .expandable-container,
+    .info-page-cast-container {
+      padding: 0 3.5%;
+    }
+
+    & .info-page-cast-container {
+      margin-top: to-rem($spacer-md);
+      font-size: $font-size-xxs;
+
+      & .info-page-cast-section {
+        margin-bottom: to-rem($spacer-sm);
+
+        & .info-page-cast-title-section::after {
+          content: ": ";
+        }
+
+        & span::after {
+          content: ", ";
+        }
+
+        & span:last-child::after {
+          content: "";
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  .info-page-request-error {
+    font-size: $font-size-l;
+  }
+
+  .info-page-container {
+    & .info-page-data-container {
+      font-size: $font-size-m;
+
+      & .info-page-header-data .info-page-header-tv-info .info-tv-info-section {
+        margin-bottom: to-rem($spacer-xs);
+      }
+
+      & .info-page-cast-container {
+        font-size: $font-size-s;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen-mdl) {
+  .info-page-request-error {
+    font-size: $font-size-hd-xs;
+  }
+
+  .info-page-container {
+    & .info-page-data-container {
+      font-size: $font-size-hd-xs;
+
+      & .info-page-header-data .info-page-header-tv-info .info-tv-info-section {
+        margin-bottom: to-rem($spacer-sm);
+      }
+
+      & .info-page-cast-container {
+        font-size: $font-size-l;
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+@use "abstract" as *;
+
+.expandable-container {
+  & .expandable-text {
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    height: auto;
+  }
+
+  & .expandable-shadow {
+    position: relative;
+    width: 100%;
+    margin-top: -(to-rem($spacer-xxl));
+    height: to-rem($spacer-xxl);
+    background: linear-gradient(
+      0deg,
+      rgba(var(--mad-primary), 1) 50%,
+      rgba(var(--mad-light), 0) 100%
+    );
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
+
+  & .expandable-expand {
+    cursor: pointer;
+    text-align: center;
+    margin-top: to-rem($spacer-xxs);
+    transition: margin-top 0.7s ease-in-out;
+
+    & > img {
+      width: to-rem(15);
+      transform: rotate(270deg);
+    }
+
+    &:active > img {
+      filter: brightness(0) invert(1);
+    }
+  }
+}
+
+.expandable-expanded {
+  & .expandable-text {
+    max-height: to-rem(10000) !important;
+    transition: max-height 1s ease-in-out;
+  }
+
+  & .expandable-shadow {
+    opacity: 0;
+  }
+
+  & .expandable-expand {
+    margin-top: to-rem($spacer-sm);
+    transition: margin-top 0.7s cubic-bezier(0, 1, 0, 1);
+
+    & > img {
+      transform: rotate(90deg);
+    }
+  }
+}
