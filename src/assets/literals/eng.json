@@ -3,5 +3,7 @@
   "creator": "Creator",
   "now": "Now",
   "infoError": "Error obtaining content information",
-  "epgError": "Error obtaining EPG data"
+  "epgError": "Error obtaining EPG data",
+  "notFound": "This page is not available",
+  "backMain": "Go back"
 }
