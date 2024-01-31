@@ -35,6 +35,7 @@ const request = new ApiRequest(buildStrings.BACK_URL);
 
 const urls = {
   epg: "epg",
+  program: "program",
 };
 
 export { ApiRequest, request, urls };

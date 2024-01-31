@@ -1,4 +1,4 @@
-import { lessThanTenParser } from "./checkLessThanTen";
+import { getParsedSchedule } from "./parsedSchedule";
 import { EPGDataInterface } from "src/components/home/epg/epgInterface";
 
 export const parseEPG = (epg: EPGDataInterface) => {
@@ -8,7 +8,10 @@ export const parseEPG = (epg: EPGDataInterface) => {
       const dateEndObject: Date = new Date(scheduleItem.end);
       scheduleItem.minutes =
         (dateEndObject.getTime() - dateStartObject.getTime()) / 1000 / 60;
-      scheduleItem.parsedSchedule = `${lessThanTenParser(dateStartObject.getHours())}:${lessThanTenParser(dateStartObject.getMinutes())} - ${lessThanTenParser(dateEndObject.getHours())}:${lessThanTenParser(dateEndObject.getMinutes())}`;
+      scheduleItem.parsedSchedule = getParsedSchedule(
+        dateStartObject,
+        dateEndObject,
+      );
     });
   });
   return epg;
