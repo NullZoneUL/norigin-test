@@ -4,7 +4,7 @@
   position: absolute;
   background-color: rgb(var(--nm-grey-main));
   z-index: 1;
-  margin-top: to-rem($spacer-huge);
+  margin-top: calc(to-rem($spacer-huge) - 1px);
 
   & > .epg-channel-list-item {
     padding: 0 20%;

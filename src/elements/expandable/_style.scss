@@ -22,8 +22,9 @@
   }
 
   & .expandable-expand {
+    cursor: pointer;
     text-align: center;
-    margin-top: 0;
+    margin-top: to-rem($spacer-xxs);
     transition: margin-top 0.7s ease-in-out;
 
     & > img {
