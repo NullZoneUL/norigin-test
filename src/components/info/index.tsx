@@ -9,11 +9,13 @@ import "./_style.scss";
 
 const InfoPage = ({ id }: { id: string }) => {
   const [programData, setProgramData] = useState<ProgramInfoInterface>();
+  const [requestError, setRequestError] = useState(false);
 
   useEffect(() => {
-    getProgramInfo(id).then((programData) =>
-      setProgramData(getParsedProgramInfo(programData)),
-    );
+    setRequestError(false);
+    getProgramInfo(id)
+      .then((programData) => setProgramData(getParsedProgramInfo(programData)))
+      .catch(() => setRequestError(true));
   }, [id]);
 
   useEffect(() => {
@@ -23,6 +25,15 @@ const InfoPage = ({ id }: { id: string }) => {
       document.body.style.backgroundColor = "";
     };
   }, []);
+
+  if (requestError) {
+    return (
+      <div className="info-page-request-error">
+        <div>{literals.infoError}</div>
+        <div>{requestError}</div>
+      </div>
+    );
+  }
 
   if (!programData) {
     return <></>;

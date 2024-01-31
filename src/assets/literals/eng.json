@@ -1,5 +1,6 @@
 {
   "cast": "Cast",
   "creator": "Creator",
-  "now": "Now"
+  "now": "Now",
+  "infoError": "Error obtaining content information"
 }
