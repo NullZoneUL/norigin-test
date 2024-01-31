@@ -11,6 +11,7 @@ import "./_style.scss";
 
 const EPGContainer = ({ date }: { date: Date }) => {
   const [epg, setEpg] = useState<EPGDataInterface>();
+  const [requestError, setRequestError] = useState(false);
   const [pxByHour, setPxByHour] = useState(0);
   const scrollPosition = useRef(0);
   const containerRef = useRef<HTMLDivElement>();
@@ -33,11 +34,16 @@ const EPGContainer = ({ date }: { date: Date }) => {
   }, []);
 
   useEffect(() => {
+    setRequestError(false);
     let minHeightTimeout: any;
 
     const getEpg = async () => {
-      const epg = await epgData.getEpg();
-      setEpg(parseEPG(epg));
+      try {
+        const epg = await epgData.getEpg();
+        setEpg(parseEPG(epg));
+      } catch {
+        setRequestError(true);
+      }
     };
 
     const resizeListener = (): void => {
@@ -56,6 +62,10 @@ const EPGContainer = ({ date }: { date: Date }) => {
       window.removeEventListener("resize", resizeListener);
     };
   }, []);
+
+  if (requestError) {
+    return <div className="request-error">{literals.epgError}</div>;
+  }
 
   if (!epg || pxByHour == 0) {
     return <></>;

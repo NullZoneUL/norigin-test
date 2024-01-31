@@ -13,9 +13,16 @@ const InfoPage = ({ id }: { id: string }) => {
 
   useEffect(() => {
     setRequestError(false);
-    getProgramInfo(id)
-      .then((programData) => setProgramData(getParsedProgramInfo(programData)))
-      .catch(() => setRequestError(true));
+    const getProgramInfo_ = async () => {
+      try {
+        const programData = await getProgramInfo(id);
+        setProgramData(getParsedProgramInfo(programData));
+      } catch {
+        setRequestError(true);
+      }
+    };
+
+    getProgramInfo_();
   }, [id]);
 
   useEffect(() => {
@@ -27,12 +34,7 @@ const InfoPage = ({ id }: { id: string }) => {
   }, []);
 
   if (requestError) {
-    return (
-      <div className="info-page-request-error">
-        <div>{literals.infoError}</div>
-        <div>{requestError}</div>
-      </div>
-    );
+    return <div className="request-error">{literals.infoError}</div>;
   }
 
   if (!programData) {

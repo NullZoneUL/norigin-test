@@ -1,12 +1,5 @@
 @use "abstract" as *;
 
-.info-page-request-error {
-  color: rgb(var(--nm-white));
-  text-align: center;
-  margin-top: to-rem($spacer-huge);
-  font-size: $font-size-s;
-}
-
 .info-page-container {
   color: rgb(var(--nm-grey-light));
 
@@ -90,10 +83,6 @@
 }
 
 @media screen and (min-width: $screen-sm) {
-  .info-page-request-error {
-    font-size: $font-size-l;
-  }
-
   .info-page-container {
     & .info-page-data-container {
       font-size: $font-size-m;
@@ -110,10 +99,6 @@
 }
 
 @media screen and (min-width: $screen-mdl) {
-  .info-page-request-error {
-    font-size: $font-size-hd-xs;
-  }
-
   .info-page-container {
     & .info-page-data-container {
       font-size: $font-size-hd-xs;

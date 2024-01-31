@@ -1,5 +1,12 @@
 @use "abstract" as *;
 
+.request-error {
+  color: rgb(var(--nm-white));
+  text-align: center;
+  margin-top: to-rem($spacer-huge);
+  font-size: $font-size-s;
+}
+
 .epg-container {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -18,5 +25,17 @@
     border-color: transparent;
     border-radius: 5px;
     text-transform: uppercase;
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  .request-error {
+    font-size: $font-size-l;
+  }
+}
+
+@media screen and (min-width: $screen-mdl) {
+  .request-error {
+    font-size: $font-size-hd-xs;
   }
 }
