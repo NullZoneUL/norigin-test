@@ -1,0 +1,41 @@
+@use "abstract" as *;
+
+.not-found-container {
+  color: rgb(var(--nm-white));
+  text-align: center;
+  font-size: $font-size-l;
+  margin-top: to-rem($spacer-huge);
+
+  & > a {
+    font-size: $font-size-m;
+    text-decoration: none;
+    color: rgb(var(--nm-white));
+    top: to-rem($spacer-xl);
+    position: relative;
+    transition: opacity 0.2s ease-out;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  .not-found-container {
+    font-size: $font-size-hd-xs;
+
+    & > a {
+      font-size: $font-size-l;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-mdl) {
+  .not-found-container {
+    font-size: $font-size-hd-s;
+
+    & > a {
+      font-size: $font-size-hd-xs;
+    }
+  }
+}
