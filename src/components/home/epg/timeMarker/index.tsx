@@ -10,17 +10,25 @@ const EPGTimeMarker = ({
 }: {
   date: Date;
   pxByHour: number;
-  onTimeUpdated: Function;
+  onTimeUpdated: (newPosition: number) => void;
 }) => {
-  const [barPosition, setBarPosition] = useState(0);
+  const [barPosition, setBarPosition] = useState(-1);
   const timeRef = useRef(date.getHours() * 60 + date.getMinutes());
 
-  const updateTimeMarker = useCallback(() => {
-    const newPosition = (timeRef.current / 60) * pxByHour;
-    setBarPosition(newPosition);
-    onTimeUpdated(newPosition);
-    timeRef.current += UPDATE_TIME / 60;
-  }, [pxByHour]);
+  /**
+   * Update the current time as well as the bar position
+   */
+  const updateTimeMarker = useCallback(
+    (doNotUpdateTime?: boolean) => {
+      const newPosition = (timeRef.current / 60) * pxByHour;
+      setBarPosition(newPosition);
+      onTimeUpdated(newPosition);
+      if (!doNotUpdateTime) {
+        timeRef.current += UPDATE_TIME / 60;
+      }
+    },
+    [pxByHour],
+  );
 
   useEffect(() => {
     const updateTimeMarkerInterval = setInterval(
@@ -33,11 +41,14 @@ const EPGTimeMarker = ({
     };
   }, []);
 
+  /**
+   * If the pixels by hour change, the time marker position is updated
+   */
   useEffect(() => {
-    updateTimeMarker();
+    updateTimeMarker(true);
   }, [pxByHour]);
 
-  if (barPosition === 0) {
+  if (barPosition === -1) {
     return <></>;
   }
 

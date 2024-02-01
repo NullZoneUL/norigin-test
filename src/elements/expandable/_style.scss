@@ -23,16 +23,16 @@
 
   & .expandable-expand {
     cursor: pointer;
-    text-align: center;
     margin-top: to-rem($spacer-xxs);
     transition: margin-top 0.7s ease-in-out;
 
-    & > img {
+    & > .extended-image {
       width: to-rem(15);
       transform: rotate(270deg);
+      margin: 0 auto;
     }
 
-    &:active > img {
+    &:active > .extended-image {
       filter: brightness(0) invert(1);
     }
   }
@@ -52,7 +52,7 @@
     margin-top: to-rem($spacer-sm);
     transition: margin-top 0.7s cubic-bezier(0, 1, 0, 1);
 
-    & > img {
+    & > .extended-image {
       transform: rotate(90deg);
     }
   }

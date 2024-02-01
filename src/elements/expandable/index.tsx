@@ -1,5 +1,6 @@
 import React, { ReactNode, useEffect, useRef, useState } from "react";
-import Arrow from "@assets/images/arrow/arrow.svg";
+import ExtendedImage from "../image";
+import { arrowImage } from "@assets/images/arrow";
 import "./_style.scss";
 
 const Expandable = ({
@@ -15,6 +16,10 @@ const Expandable = ({
 
   useEffect(() => {
     let checkWidthTimeout: ReturnType<typeof setTimeout>;
+    /**
+     * In case of window resize, check if the new content height is enough
+     * for displaying the button
+     */
     const resizeListener = (): void => {
       clearTimeout(checkWidthTimeout);
       checkWidthTimeout = setTimeout(() => {
@@ -53,7 +58,7 @@ const Expandable = ({
           className="expandable-expand"
           onClick={() => setExpanded(!expanded)}
         >
-          <img src={Arrow} />
+          <ExtendedImage image={arrowImage} preload />
         </div>
       )}
     </div>

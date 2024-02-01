@@ -6,17 +6,3 @@ $fontPath: "src/assets/fonts";
   font-weight: normal;
   font-style: normal;
 }
-
-@font-face {
-  font-family: "Epilogue Italic";
-  src: url("#{$fontPath}/Epilogue-Italic.woff2") format("woff2");
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Epilogue Bold";
-  src: url("#{$fontPath}/Epilogue-Bold.woff2") format("woff2");
-  font-weight: bold;
-  font-style: normal;
-}

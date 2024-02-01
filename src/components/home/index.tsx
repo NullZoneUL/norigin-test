@@ -2,6 +2,9 @@ import React, { useRef } from "react";
 import DateBar from "./dateBar";
 import EPGContainer from "./epg";
 
+/**
+ * Index page
+ */
 const Home = () => {
   const date = useRef(new Date());
 

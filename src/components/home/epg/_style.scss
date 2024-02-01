@@ -3,7 +3,7 @@
 .request-error {
   color: rgb(var(--nm-white));
   text-align: center;
-  margin-top: to-rem($spacer-huge);
+  margin-top: to-rem($spacer-big);
   font-size: $font-size-s;
 }
 
@@ -41,6 +41,6 @@
 
 @media screen and (min-width: $screen-mdl) {
   .request-error {
-    font-size: $font-size-hd-xs;
+    font-size: $font-size-xl;
   }
 }

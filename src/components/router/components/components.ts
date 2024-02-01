@@ -8,6 +8,9 @@ interface ComponentsInterface {
   [key: string]: (props: any) => ReactElement;
 }
 
+/**
+ * Available pages
+ */
 const components: ComponentsInterface = {
   [Routes.index]: Home,
   [Routes.info]: InfoPage,

@@ -20,19 +20,14 @@ class ApiRequest {
       console.error(error);
     }
 
-    try {
-      const response = await axios.get(
-        `${this.URL}${section}${formattedParams}`,
-      );
-      return response?.data;
-    } catch (error) {
-      throw error;
-    }
+    const response = await axios.get(`${this.URL}${section}${formattedParams}`);
+    return response?.data;
   };
 }
 
 const request = new ApiRequest(buildStrings.BACK_URL);
 
+//Available urls
 const urls = {
   epg: "epg",
   program: "program",

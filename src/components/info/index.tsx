@@ -7,6 +7,9 @@ import { ProgramInfoInterface } from "./programInfoInterface";
 import literals from "@assets/literals/eng.json";
 import "./_style.scss";
 
+/**
+ * Detailed program page
+ */
 const InfoPage = ({ id }: { id: string }) => {
   const [programData, setProgramData] = useState<ProgramInfoInterface>();
   const [requestError, setRequestError] = useState(false);
@@ -21,7 +24,9 @@ const InfoPage = ({ id }: { id: string }) => {
         setRequestError(true);
       }
     };
-
+    /**
+     * Get the selected program data each time the received id change
+     */
     getProgramInfo_();
   }, [id]);
 
@@ -33,6 +38,10 @@ const InfoPage = ({ id }: { id: string }) => {
     };
   }, []);
 
+  /**
+   * In case of having any error with the request,
+   * an error message is displayed
+   */
   if (requestError) {
     return <div className="request-error">{literals.infoError}</div>;
   }

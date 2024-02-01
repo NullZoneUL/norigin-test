@@ -1,19 +1,11 @@
 @use "../size-key/size-key" as *;
 @use "abstract/functions/to-rem/to-rem" as *;
 
-$spacer-t: $size-key * 0.5; // 2
 $spacer-xxs: $size-key * 1; // 4
 $spacer-xs: $size-key * 2; // 8
 $spacer-sm: $size-key * 3; // 12
-
 $spacer-md: $size-key * 4; // 16
 $spacer-lg: $size-key * 5; // 20
 $spacer-xl: $size-key * 6; // 24
-
 $spacer-xxl: $size-key * 8; // 32
-$spacer-big: $size-key * 10; // 40
-$spacer-huge: $size-key * 12; // 48
-
-$spacer-giant: $size-key * 16; // 64
-$spacer-fox: $size-key * 20; // 80
-$spacer-falco: $size-key * 24; // 96
+$spacer-big: $size-key * 12; // 48
