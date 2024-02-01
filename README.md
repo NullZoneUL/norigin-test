@@ -15,8 +15,6 @@ These first commands will install all the needed dependences.
 <br>
 **-> npm i**
 <br>
-**-> npm run prepare**
-<br>
 ## **--- Starting dev server ---**
 By default, the dev server runs in *localhost:8080*, but you can access it from any device of your local network by changing localhost to the ip of the device running the server.
 <br>
