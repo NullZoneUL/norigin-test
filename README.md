@@ -10,7 +10,7 @@ npm version: **8.19.2**
 <br>
 <br>
 ## **--- Init ---**
-These first commands will install all the needed dependences.
+This first command will install all the needed dependences.
 <br>
 <br>
 **-> npm i**
