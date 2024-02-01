@@ -33,6 +33,7 @@ class ApiRequest {
 
 const request = new ApiRequest(buildStrings.BACK_URL);
 
+//Available urls
 const urls = {
   epg: "epg",
   program: "program",

@@ -13,6 +13,9 @@ const ExtendedImage = ({
 }) => {
   const [loaded, setLoaded] = useState(false);
 
+  /**
+   * Image preload check
+   */
   useEffect(() => {
     setLoaded(false);
     const img = new Image();

@@ -6,6 +6,10 @@ import { Routes } from "src/routes/routes";
 
 type RoutesType = Routes;
 
+/**
+ * Maintains the App component loaded in every moment
+ * as well as loading the indicated section
+ */
 const RouterManager = ({ route }: { route: RoutesType }) => {
   const Page = getComponentFromRoute(route);
   const props: any = useParams();

@@ -22,7 +22,7 @@
 @media screen and (min-width: $screen-mds) {
   .date-bar-item {
     & .date-bar-item-day-name {
-      font-size: $font-size-hd-xs;
+      font-size: $font-size-xl;
     }
 
     & .date-bar-item-date {
@@ -34,11 +34,11 @@
 @media screen and (min-width: $screen-lg) {
   .date-bar-item {
     & .date-bar-item-day-name {
-      font-size: $font-size-hd-s;
+      font-size: $font-size-xxl;
     }
 
     & .date-bar-item-date {
-      font-size: $font-size-hd-xs;
+      font-size: $font-size-xl;
     }
   }
 }

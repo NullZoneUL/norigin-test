@@ -9,6 +9,6 @@ export const getParsedProgramInfo = (
   return {
     ...data,
     parsedSchedule: getParsedSchedule(dateStart, dateEnd),
-    parsedDate: `${dateStart.getDate()} ${dateStart.toLocaleString("en-us", { month: "short" })}`,
+    parsedDate: `${dateStart.getDate()} ${dateStart.toLocaleString("en-us", { month: "short" })}`, // Get date in 'Day Month (shortened)' format
   };
 };

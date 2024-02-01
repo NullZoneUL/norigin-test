@@ -12,22 +12,37 @@ import "./_style.scss";
 const EPGContainer = ({ date }: { date: Date }) => {
   const [epg, setEpg] = useState<EPGDataInterface>();
   const [requestError, setRequestError] = useState(false);
+
+  // Number of pixels representing an hour within the EPG
   const [pxByHour, setPxByHour] = useState(0);
+
+  // Position of the local time bar
   const scrollPosition = useRef(0);
-  const containerRef = useRef<HTMLDivElement>();
-  const channelsRef = useRef<HTMLDivElement>();
+
+  //First scroll check
   const scrolled = useRef(false);
 
+  const containerRef = useRef<HTMLDivElement>();
+  const channelsRef = useRef<HTMLDivElement>();
+
+  /**
+   * Called by <TimeMarker> updates the current time
+   * scroll position
+   */
   const geScrollPosition = (newPosition: number) => {
     scrollPosition.current =
       newPosition - (window.innerWidth - channelsRef.current.clientWidth) / 2;
 
+    // If it is the first load
     if (!scrolled.current) {
       resetContainerScroll();
       scrolled.current = true;
     }
   };
 
+  /**
+   * Set the EPG scroll position to the current time
+   */
   const resetContainerScroll = useCallback(() => {
     if (!containerRef.current) return;
     containerRef.current.scrollLeft = scrollPosition.current;
@@ -46,6 +61,9 @@ const EPGContainer = ({ date }: { date: Date }) => {
       }
     };
 
+    /**
+     * Auto readjustment in case of window resize
+     */
     const resizeListener = (): void => {
       clearTimeout(minHeightTimeout);
       minHeightTimeout = setTimeout(() => {

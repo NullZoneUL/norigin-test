@@ -15,6 +15,10 @@ const Expandable = ({
 
   useEffect(() => {
     let checkWidthTimeout: ReturnType<typeof setTimeout>;
+    /**
+     * In case of window resize, check if the new content height is enough
+     * for displaying the button
+     */
     const resizeListener = (): void => {
       clearTimeout(checkWidthTimeout);
       checkWidthTimeout = setTimeout(() => {

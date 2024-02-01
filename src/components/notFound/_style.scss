@@ -4,7 +4,7 @@
   color: rgb(var(--nm-white));
   text-align: center;
   font-size: $font-size-l;
-  margin-top: to-rem($spacer-huge);
+  margin-top: to-rem($spacer-big);
 
   & > a {
     font-size: $font-size-m;
@@ -22,7 +22,7 @@
 
 @media screen and (min-width: $screen-sm) {
   .not-found-container {
-    font-size: $font-size-hd-xs;
+    font-size: $font-size-xl;
 
     & > a {
       font-size: $font-size-l;
@@ -32,10 +32,10 @@
 
 @media screen and (min-width: $screen-mdl) {
   .not-found-container {
-    font-size: $font-size-hd-s;
+    font-size: $font-size-xxl;
 
     & > a {
-      font-size: $font-size-hd-xs;
+      font-size: $font-size-xl;
     }
   }
 }

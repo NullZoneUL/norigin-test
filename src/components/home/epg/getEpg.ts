@@ -1,6 +1,9 @@
 import { request, urls } from "src/utils/api";
 import { EPGDataInterface } from "./epgInterface";
 
+/**
+ * EPG management class
+ */
 class EPGData {
   lastEpgUpdate: Date;
   epgData: EPGDataInterface;

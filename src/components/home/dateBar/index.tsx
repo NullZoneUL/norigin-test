@@ -17,7 +17,7 @@ const DateBar = ({ date }: { date: Date }) => {
     for (let i = -2; i <= 2; i++) {
       dayDate.setTime(date.getTime() + i * oneDayOffset);
       daysArray.push({
-        dayName: dayDate.toLocaleString("en-us", { weekday: "short" }),
+        dayName: dayDate.toLocaleString("en-us", { weekday: "short" }), //Get the week day shortened
         date: `${lessThanTenParser(dayDate.getDate())}.${lessThanTenParser(dayDate.getMonth() + 1)}.`,
         selected: i === 0,
       });

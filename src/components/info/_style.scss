@@ -101,7 +101,7 @@
 @media screen and (min-width: $screen-mdl) {
   .info-page-container {
     & .info-page-data-container {
-      font-size: $font-size-hd-xs;
+      font-size: $font-size-xl;
 
       & .info-page-header-data .info-page-header-tv-info .info-tv-info-section {
         margin-bottom: to-rem($spacer-sm);
