@@ -31,7 +31,8 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "index.html"
+      template: "index.html",
+      favicon: "src/assets/images/favicon/favicon.ico"
     }),
     new MiniCssExtractPlugin()
   ],
