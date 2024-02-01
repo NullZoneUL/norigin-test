@@ -70,7 +70,7 @@ const config = {
         loader: 'string-replace-loader',
         options: {
           search: '___BACKEND___',
-          replace:'http://localhost:9000/',
+          replace:'http://localhost:1337/',
         }
       }
     ],
