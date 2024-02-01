@@ -50,7 +50,7 @@ const EPGContainer = ({ date }: { date: Date }) => {
 
   useEffect(() => {
     setRequestError(false);
-    let minHeightTimeout: any;
+    let minHeightTimeout: ReturnType<typeof setTimeout>;
 
     const getEpg = async () => {
       try {

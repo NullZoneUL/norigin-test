@@ -1,0 +1,22 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": { "project": ["./tsconfig.json"] },
+  "env": {
+    "browser": true,
+    "jasmine": true,
+    "es6": true
+  },
+  "plugins": ["@typescript-eslint", "compat"],
+  "rules": {
+    "compat/compat": "error"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:compat/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "settings": {
+    "polyfills": [""]
+  },
+  "root": true
+}

@@ -10,7 +10,7 @@ const EPGTimeMarker = ({
 }: {
   date: Date;
   pxByHour: number;
-  onTimeUpdated: Function;
+  onTimeUpdated: (newPosition: number) => void;
 }) => {
   const [barPosition, setBarPosition] = useState(-1);
   const timeRef = useRef(date.getHours() * 60 + date.getMinutes());
